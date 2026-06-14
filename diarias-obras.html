@@ -7,33 +7,41 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#F1F5F9;color:#111827;font-size:14px}
+
 #topnav{display:flex;align-items:center;gap:6px;padding:0 10px;height:52px;background:#fff;border-bottom:1px solid #E5E7EB;position:sticky;top:0;z-index:100;flex-wrap:wrap}
 .app-logo{font-size:18px}.app-name{font-weight:800;font-size:14px;color:#111827}.app-sub{font-size:10px;color:#9CA3AF;margin-right:auto}
 .nav-btn{padding:5px 10px;border-radius:7px;border:none;background:none;font-size:12px;color:#6B7280;cursor:pointer;font-weight:500;font-family:inherit;white-space:nowrap}
 .nav-btn.on{background:#F3F4F6;color:#111827;font-weight:700}
 .btn-pdf{padding:5px 10px;border-radius:7px;border:1.5px solid #D1D5DB;background:#fff;font-size:12px;font-weight:600;cursor:pointer;color:#374151;font-family:inherit}
 .btn-zerar{padding:5px 10px;border-radius:7px;border:1.5px solid #FECACA;background:#FEF2F2;font-size:12px;font-weight:600;cursor:pointer;color:#DC2626;font-family:inherit}
+
 #main{padding:12px;display:flex;flex-direction:column;gap:10px}
 .view{display:none}.view.active{display:flex;flex-direction:column;gap:10px}
+
 .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .kpi-card{background:#fff;border-radius:10px;padding:11px 13px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .kpi-top{display:flex;align-items:center;gap:5px;margin-bottom:3px}
 .kpi-label{font-size:10px;color:#6B7280;text-transform:uppercase;letter-spacing:.4px}
 .kpi-val{font-size:16px;font-weight:800}
+
 .obra-bar{display:flex;gap:7px;flex-wrap:wrap}
 .obra-chip{background:#fff;border-radius:8px;padding:6px 10px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .obra-name{font-size:9px;color:#6B7280;text-transform:uppercase;display:block}
 .obra-val{font-size:12px;font-weight:700;color:#1B4F72}
+
 .toolbar{display:flex;gap:7px;flex-wrap:wrap}
 .search-box{flex:2;padding:7px 10px;border-radius:8px;border:1.5px solid #D1D5DB;font-size:13px;outline:none;font-family:inherit;min-width:140px}
 .sel{padding:7px 8px;border-radius:8px;border:1.5px solid #D1D5DB;font-size:12px;background:#fff;font-family:inherit;cursor:pointer}
+
+/* TABS */
 .tabs{display:flex;gap:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.tab-btn{flex:1;padding:11px 8px;border:none;background:none;font-size:12px;font-weight:600;color:#6B7280;cursor:pointer;font-family:inherit;border-bottom:2px solid transparent}
+.tab-btn{flex:1;padding:11px 8px;border:none;background:none;font-size:12px;font-weight:600;color:#6B7280;cursor:pointer;font-family:inherit;border-bottom:2px solid transparent;transition:all .15s}
 .tab-btn.on{color:#111827;border-bottom:2px solid #111827;background:#F9FAFB}
+
 .table-wrap{background:#fff;border-radius:10px;overflow:auto;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 table{width:100%;border-collapse:collapse;min-width:500px}
 th{padding:8px 10px;text-align:left;font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;background:#F8FAFC;border-bottom:1px solid #E5E7EB;white-space:nowrap}
-tr.dr{border-bottom:1px solid #F1F5F9}
+tr.dr{border-bottom:1px solid #F1F5F9;transition:background .1s}
 tr.dr:hover{background:#F0F7FF}
 td{padding:9px 10px;font-size:12px;vertical-align:middle}
 .cbadge{background:#F0FDF4;color:#166534;font-size:10px;font-weight:600;padding:2px 7px;border-radius:5px;white-space:nowrap}
@@ -44,6 +52,7 @@ td{padding:9px 10px;font-size:12px;vertical-align:middle}
 tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid #E5E7EB}
 .tfl{font-weight:700;color:#374151;text-align:right;font-size:11px}
 .tfv{font-weight:800;color:#111827;font-size:13px}
+
 .form-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .sec-title{font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #F1F5F9}
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -56,15 +65,20 @@ tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid
 .inp[readonly]{background:#F9FAFB;color:#0369A1;font-weight:700}
 .em{font-size:10px;color:#DC2626}
 .hint{font-size:10px;color:#9CA3AF;margin-top:1px}
+
 .calc-box{background:#F0F9FF;border:1.5px solid #BAE6FD;border-radius:10px;padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .ci-label{font-size:9px;color:#0369A1;font-weight:700;text-transform:uppercase}
 .ci-val{font-size:14px;font-weight:800;color:#0C4A6E;margin-top:2px}
+
+/* SALÁRIO BOX */
 .sal-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:10px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .sal-label{font-size:9px;color:#166534;font-weight:700;text-transform:uppercase}
 .sal-val{font-size:14px;font-weight:800;color:#065F46;margin-top:2px}
+
 .fa{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
 .bp{background:#111827;color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 .bg{background:#fff;color:#374151;border:1.5px solid #D1D5DB;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+
 .dl{display:grid;grid-template-columns:1fr;gap:10px}
 .dc{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:8px}
 .dt{font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px}
@@ -74,6 +88,7 @@ tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid
 .sa{display:flex;flex-direction:column;gap:6px;margin-top:9px}
 .bst{padding:7px 11px;border-radius:8px;border:1.5px solid;background:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;text-align:left}
 .bdel{width:100%;background:#FEF2F2;color:#DC2626;border:1.5px solid #FECACA;border-radius:9px;padding:10px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+
 .arq-card{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:8px}
 .arq-nome{font-weight:700;font-size:13px;color:#111827}
 .arq-meta{font-size:11px;color:#6B7280;margin-top:2px}
@@ -82,6 +97,7 @@ tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid
 .bsm{padding:5px 10px;border-radius:7px;border:1.5px solid #D1D5DB;background:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;color:#374151}
 .bsm.red{border-color:#FECACA;color:#DC2626;background:#FEF2F2}
 .empty-a{text-align:center;padding:32px;color:#9CA3AF;background:#fff;border-radius:10px;font-size:13px;line-height:2}
+
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
 .mo.open{display:flex}
 .md{background:#fff;border-radius:14px;padding:20px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
@@ -90,30 +106,39 @@ tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid
 .md-inp{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #D1D5DB;font-size:14px;font-family:inherit;outline:none;margin-bottom:12px}
 .md-inp:focus{border-color:#111827}
 .md-acts{display:flex;justify-content:flex-end;gap:8px}
+
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;align-items:center;justify-content:center;padding:12px}
 .ov.open{display:flex}
-.ov-box{background:#fff;border-radius:14px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.ov-box{background:#fff;border-radius:14px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
 .ov-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #E5E7EB;flex-shrink:0}
-.ov-title{font-size:14px;font-weight:800}
+.ov-title{font-size:14px;font-weight:800;color:#111827}
 .ov-acts{display:flex;gap:7px}
 .ov-body{overflow:auto;padding:16px;flex:1}
 .ov-close{background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;line-height:1;padding:2px}
+
 .pdf-wrap{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .pdf-actions{display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px}
+
 #toast{position:fixed;bottom:18px;right:16px;color:#fff;padding:10px 16px;border-radius:9px;font-size:12px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.15);z-index:999;display:none;transition:opacity .3s}
+
+/* PRINT */
 @media print{
-body{background:#fff!important;margin:0;padding:0}
-#topnav,#main{display:none!important}
-#pdf-print-area{display:block!important;position:static;width:100%;padding:10px;font-family:sans-serif}
-#pdf-print-area table{width:100%;border-collapse:collapse}
-#pdf-print-area th{background:#f3f4f6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:5px 6px;border:1px solid #ccc;font-size:9px;font-weight:700;text-align:left}
-#pdf-print-area td{padding:5px 6px;border:1px solid #ddd;font-size:9px}
-#pdf-print-area tfoot td{background:#f9fafb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-top:2px solid #999;font-weight:700}
-@page{margin:8mm;size:A4 landscape}}
+  body{background:#fff!important;margin:0;padding:0}
+  #topnav,#main{display:none!important}
+  #pdf-print-area{display:block!important;position:static;width:100%;padding:10px;font-family:sans-serif}
+  #pdf-print-area table{width:100%;border-collapse:collapse}
+  #pdf-print-area th{background:#f3f4f6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:5px 6px;border:1px solid #ccc;font-size:9px;font-weight:700;text-align:left}
+  #pdf-print-area td{padding:5px 6px;border:1px solid #ddd;font-size:9px}
+  #pdf-print-area tfoot td{background:#f9fafb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-top:2px solid #999;font-weight:700}
+  @page{margin:8mm;size:A4 landscape}
+}
 #pdf-print-area{display:none}
 </style>
-</head><body>
+</head>
+<body>
+
 <div id="pdf-print-area"></div>
+
 <nav id="topnav">
   <span class="app-logo">🏗️</span>
   <span class="app-name">ObraPay</span>
@@ -124,60 +149,702 @@ body{background:#fff!important;margin:0;padding:0}
   <button class="btn-pdf" onclick="gerarPDF()">🖨️ PDF</button>
   <button class="btn-zerar" onclick="abrirModalZerar()">🗂️ Arquivar</button>
 </nav>
+
 <div id="main">
-<div class="view active" id="view-lista">
-  <div class="kpis" id="kpis"></div>
-  <div class="obra-bar" id="obra-bar"></div>
-  <div class="tabs">
-    <button class="tab-btn on" id="tab-diarias" onclick="mudaTab('diarias')">💰 Diárias / HE</button>
-    <button class="tab-btn" id="tab-salario" onclick="mudaTab('salario')">💼 Salário</button>
+
+  <!-- LISTA -->
+  <div class="view active" id="view-lista">
+    <div class="kpis" id="kpis"></div>
+    <div class="obra-bar" id="obra-bar"></div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn on" id="tab-diarias" onclick="mudaTab('diarias')">💰 Diárias / HE</button>
+      <button class="tab-btn" id="tab-salario" onclick="mudaTab('salario')">💼 Salário</button>
+    </div>
+
+    <div class="toolbar">
+      <input class="search-box" id="search" placeholder="Buscar..." oninput="render()"/>
+      <select class="sel" id="f-status" onchange="render()">
+        <option value="todos">Todos status</option>
+        <option value="pendente">Pendente</option>
+        <option value="aprovado">Aprovado</option>
+        <option value="pago">Pago</option>
+        <option value="recusado">Recusado</option>
+      </select>
+      <select class="sel" id="f-centro" onchange="render()"><option value="todos">Todos centros</option></select>
+    </div>
+
+    <!-- tabela diárias -->
+    <div class="table-wrap" id="tbl-diarias">
+      <table>
+        <thead><tr>
+          <th>Data</th><th>Centro</th><th>Favorecido</th><th>Descrição</th>
+          <th>D</th><th>Vl/Dia</th><th>HE</th><th>Vl/HE</th><th>Total</th><th>Status</th><th></th>
+        </tr></thead>
+        <tbody id="tbody-diarias"></tbody>
+        <tfoot><tr>
+          <td colspan="8" class="tfl">Total</td>
+          <td class="tfv" id="tot-diarias"></td><td colspan="2"></td>
+        </tr></tfoot>
+      </table>
+    </div>
+
+    <!-- tabela salário -->
+    <div class="table-wrap" id="tbl-salario" style="display:none">
+      <table>
+        <thead><tr>
+          <th>Data</th><th>Centro</th><th>Favorecido</th><th>Descrição</th>
+          <th>Salário Base</th><th>Descontos</th><th>Acréscimos</th><th>Total Líquido</th><th>PIX</th><th>Status</th><th></th>
+        </tr></thead>
+        <tbody id="tbody-salario"></tbody>
+        <tfoot><tr>
+          <td colspan="7" class="tfl">Total Líquido</td>
+          <td class="tfv" id="tot-salario"></td><td colspan="3"></td>
+        </tr></tfoot>
+      </table>
+    </div>
   </div>
-  <div class="toolbar">
-    <input class="search-box" id="search" placeholder="Buscar..." oninput="render()"/>
-    <select class="sel" id="f-status" onchange="render()">
-      <option value="todos">Todos status</option>
-      <option value="pendente">Pendente</option>
-      <option value="aprovado">Aprovado</option>
-      <option value="pago">Pago</option>
-      <option value="recusado">Recusado</option>
-    </select>
-    <select class="sel" id="f-centro" onchange="render()"><option value="todos">Todos centros</option></select>
+
+  <!-- NOVO -->
+  <div class="view" id="view-novo">
+    <!-- tipo tabs -->
+    <div class="tabs">
+      <button class="tab-btn on" id="ntab-diarias" onclick="mudaTipoNovo('diarias')">💰 Diárias / HE</button>
+      <button class="tab-btn" id="ntab-salario" onclick="mudaTipoNovo('salario')">💼 Salário</button>
+    </div>
+
+    <!-- FORM DIÁRIAS -->
+    <div id="form-diarias">
+      <div class="form-card">
+        <div class="sec-title">Dados Gerais</div>
+        <div class="fg">
+          <div class="f"><label class="lbl">Data</label><input type="date" class="inp" id="f-data"/></div>
+          <div class="f">
+            <label class="lbl">Centro de Custo</label>
+            <select class="inp" id="f-cc" onchange="toggleOutro()">
+              <option value="">Selecione...</option>
+              <option>BLOW ESCOVAS</option><option>GEAP</option>
+              <option>ROSARIO ASA SUL</option><option>ROSARIO CUIABA</option>
+              <option value="OUTRO">OUTRO</option>
+            </select>
+            <span class="em" id="e-cc" style="display:none">Obrigatório</span>
+          </div>
+          <div class="f full" id="outro-wrap" style="display:none">
+            <label class="lbl">Nome da Obra / CC</label>
+            <input type="text" class="inp" id="f-cc-custom" placeholder="Digite o nome"/>
+          </div>
+          <div class="f"><label class="lbl">Favorecido</label><input type="text" class="inp" id="f-fav" placeholder="Nome completo"/><span class="em" id="e-fav" style="display:none">Obrigatório</span></div>
+          <div class="f">
+            <label class="lbl">Tipo</label>
+            <select class="inp" id="f-tipo">
+              <option value="">Selecione...</option>
+              <option>DIÁRIAS</option><option>EMPREITA</option><option>MEDIÇÃO</option>
+              <option>PASSAGEM</option><option>LIMPEZA FINAL DE OBRA</option><option>MATERIAL</option><option>OUTROS</option>
+            </select>
+            <span class="em" id="e-tipo" style="display:none">Obrigatório</span>
+          </div>
+          <div class="f full"><label class="lbl">Descrição</label><input type="text" class="inp" id="f-desc" placeholder="Ex: DIÁRIAS ATÉ DIA 05/04"/><span class="em" id="e-desc" style="display:none">Obrigatório</span></div>
+          <div class="f"><label class="lbl">PIX</label><input type="text" class="inp" id="f-pix" placeholder="Chave PIX (opcional)"/></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="sec-title">Cálculo</div>
+          <div class="fg">
+            <div class="f"><label class="lbl">Valor da Diária (R$)</label><input type="number" min="0" step="0.01" class="inp" id="f-vdia" placeholder="0,00" oninput="calc()"/><span class="em" id="e-vdia" style="display:none">Informe o valor</span></div>
+            <div class="f"><label class="lbl">Qtd. Diárias</label><input type="number" min="0" step="1" class="inp" id="f-qdia" placeholder="0" oninput="calc()"/></div>
+            <div class="f"><label class="lbl">Total Diárias</label><input class="inp" id="f-tdia" readonly placeholder="R$ 0,00"/></div>
+            <div class="f"><label class="lbl">Valor Hora Extra</label><input class="inp" id="f-vhe" readonly placeholder="R$ 0,00"/><span class="hint">= Diária ÷ 8</span></div>
+            <div class="f"><label class="lbl">Qtd. Horas Extras</label><input type="number" min="0" step="0.5" class="inp" id="f-qhe" placeholder="0" oninput="calc()"/></div>
+            <div class="f"><label class="lbl">Total HE</label><input class="inp" id="f-the" readonly placeholder="R$ 0,00"/></div>
+          </div>
+          <div class="calc-box">
+            <div><div class="ci-label">💰 Diárias</div><div class="ci-val" id="cb-d">R$ 0,00</div></div>
+            <div><div class="ci-label">⏱️ HE</div><div class="ci-val" id="cb-h">R$ 0,00</div></div>
+            <div><div class="ci-label">✅ Total</div><div class="ci-val" id="cb-t" style="font-size:16px;color:#065F46">R$ 0,00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fa">
+        <button class="bg" onclick="cancelForm()">Cancelar</button>
+        <button class="bp" onclick="submitDiaria()">Registrar</button>
+      </div>
+    </div>
+
+    <!-- FORM SALÁRIO -->
+    <div id="form-salario" style="display:none">
+      <div class="form-card">
+        <div class="sec-title">Dados Gerais</div>
+        <div class="fg">
+          <div class="f"><label class="lbl">Data</label><input type="date" class="inp" id="s-data"/></div>
+          <div class="f">
+            <label class="lbl">Centro de Custo</label>
+            <select class="inp" id="s-cc" onchange="toggleOutroSal()">
+              <option value="">Selecione...</option>
+              <option>BLOW ESCOVAS</option><option>GEAP</option>
+              <option>ROSARIO ASA SUL</option><option>ROSARIO CUIABA</option>
+              <option value="OUTRO">OUTRO</option>
+            </select>
+            <span class="em" id="se-cc" style="display:none">Obrigatório</span>
+          </div>
+          <div class="f full" id="outro-wrap-sal" style="display:none">
+            <label class="lbl">Nome da Obra / CC</label>
+            <input type="text" class="inp" id="s-cc-custom" placeholder="Digite o nome"/>
+          </div>
+          <div class="f"><label class="lbl">Funcionário</label><input type="text" class="inp" id="s-fav" placeholder="Nome completo"/><span class="em" id="se-fav" style="display:none">Obrigatório</span></div>
+          <div class="f full"><label class="lbl">Descrição / Referência</label><input type="text" class="inp" id="s-desc" placeholder="Ex: SALÁRIO REFERENTE ABRIL/2026"/><span class="em" id="se-desc" style="display:none">Obrigatório</span></div>
+          <div class="f"><label class="lbl">PIX</label><input type="text" class="inp" id="s-pix" placeholder="Chave PIX (opcional)"/></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="sec-title">Valores</div>
+          <div class="fg">
+            <div class="f"><label class="lbl">Salário Base (R$)</label><input type="number" min="0" step="0.01" class="inp" id="s-base" placeholder="0,00" oninput="calcSal()"/><span class="em" id="se-base" style="display:none">Informe o valor</span></div>
+            <div class="f"><label class="lbl">Descontos (R$)</label><input type="number" min="0" step="0.01" class="inp" id="s-desc2" placeholder="0,00" oninput="calcSal()"/><span class="hint">INSS, faltas, etc.</span></div>
+            <div class="f"><label class="lbl">Acréscimos (R$)</label><input type="number" min="0" step="0.01" class="inp" id="s-acres" placeholder="0,00" oninput="calcSal()"/><span class="hint">Bônus, adicionais, etc.</span></div>
+            <div class="f"><label class="lbl">Total Líquido</label><input class="inp" id="s-liq" readonly placeholder="R$ 0,00"/></div>
+          </div>
+          <div class="sal-box">
+            <div><div class="sal-label">💼 Salário Base</div><div class="sal-val" id="sb-base">R$ 0,00</div></div>
+            <div><div class="sal-label">➖ Descontos</div><div class="sal-val" style="color:#DC2626" id="sb-desc">R$ 0,00</div></div>
+            <div><div class="sal-label">➕ Acréscimos</div><div class="sal-val" style="color:#059669" id="sb-acres">R$ 0,00</div></div>
+            <div><div class="sal-label">✅ Total Líquido</div><div class="sal-val" id="sb-liq" style="font-size:16px;color:#065F46">R$ 0,00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fa">
+        <button class="bg" onclick="cancelForm()">Cancelar</button>
+        <button class="bp" onclick="submitSalario()">Registrar Salário</button>
+      </div>
+    </div>
   </div>
-  <div class="table-wrap" id="tbl-diarias">
-    <table>
-      <thead><tr>
-        <th>Data</th><th>Centro</th><th>Favorecido</th><th>Descrição</th>
-        <th>D</th><th>Vl/Dia</th><th>HE</th><th>Vl/HE</th><th>Total</th><th>Status</th><th></th>
-      </tr></thead>
-      <tbody id="tbody-diarias"></tbody>
-      <tfoot><tr><td colspan="8" class="tfl">Total</td><td class="tfv" id="tot-diarias"></td><td colspan="2"></td></tr></tfoot>
-    </table>
+
+  <!-- DETALHE -->
+  <div class="view" id="view-detalhe">
+    <button class="bg" style="align-self:flex-start" onclick="showView('lista')">← Voltar</button>
+    <div class="dl">
+      <div>
+        <div class="dc"><div class="dt">Dados</div><div id="det-rows"></div></div>
+        <div class="dc"><div class="dt">Valores</div><div id="det-calc"></div></div>
+      </div>
+      <div>
+        <div class="dc"><div class="dt">Total</div><div class="vg" id="det-val"></div></div>
+        <div class="dc">
+          <div class="dt">Status</div>
+          <span class="badge" id="det-badge"></span>
+          <div class="sa" id="det-status"></div>
+        </div>
+        <button class="bdel" id="btn-del">🗑️ Excluir</button>
+      </div>
+    </div>
   </div>
-  <div class="table-wrap" id="tbl-salario" style="display:none">
-    <table>
-      <thead><tr>
-        <th>Data</th><th>Centro</th><th>Favorecido</th><th>Descrição</th>
-        <th>Sal. Base</th><th>Descontos</th><th>Acréscimos</th><th>Total Líquido</th><th>PIX</th><th>Status</th><th></th><script>
-const ST={pendente:{label:'Pendente',color:'#D97706',bg:'#FEF3C7'},aprovado:{label:'Aprovado',color:'#059669',bg:'#D1FAE5'},pago:{label:'Pago',color:'#2563EB',bg:'#DBEAFE'},recusado:{label:'Recusado',color:'#DC2626',bg:'#FEE2E2'}};
+
+  <!-- ARQUIVO -->
+  <div class="view" id="view-arquivo">
+    <h2 style="font-size:15px;font-weight:800">🗄️ Planilhas Arquivadas</h2>
+    <div id="arq-list"></div>
+  </div>
+
+  <!-- PDF PREVIEW -->
+  <div class="view" id="view-pdf">
+    <div class="pdf-actions">
+      <button class="bg" onclick="showView('lista')">← Voltar</button>
+      <button class="bp" onclick="imprimirPDF()">🖨️ Imprimir / Salvar PDF</button>
+    </div>
+    <div class="pdf-wrap" id="pdf-conteudo"></div>
+  </div>
+
+</div>
+
+<!-- MODAL ZERAR -->
+<div class="mo" id="modal-zerar">
+  <div class="md">
+    <h3>🗂️ Arquivar e Zerar</h3>
+    <p>Dê um nome para esta planilha. Tudo será salvo no arquivo e o sistema ficará zerado.</p>
+    <input class="md-inp" id="modal-nome" placeholder="Ex: Pagamentos Abril 2026"/>
+    <div class="md-acts">
+      <button class="bg" onclick="fecharModal()">Cancelar</button>
+      <button class="bp" onclick="confirmarZerar()">Arquivar & Zerar</button>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY VER ARQUIVO -->
+<div class="ov" id="ov-ver">
+  <div class="ov-box">
+    <div class="ov-head">
+      <div class="ov-title" id="ov-title">Planilha</div>
+      <div class="ov-acts">
+        <button class="bsm" onclick="imprimirOv()">🖨️ PDF</button>
+        <button class="ov-close" onclick="fecharOv()">✕</button>
+      </div>
+    </div>
+    <div class="ov-body" id="ov-body"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const ST={
+  pendente:{label:'Pendente',color:'#D97706',bg:'#FEF3C7'},
+  aprovado:{label:'Aprovado',color:'#059669',bg:'#D1FAE5'},
+  pago:    {label:'Pago',    color:'#2563EB',bg:'#DBEAFE'},
+  recusado:{label:'Recusado',color:'#DC2626',bg:'#FEE2E2'},
+};
 const fmt=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const fmtN=v=>Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 const fmtD=d=>d?new Date(d+'T12:00:00').toLocaleDateString('pt-BR'):'—';
 const $=id=>document.getElementById(id);
+
 let rows=JSON.parse(localStorage.getItem('op_rows')||'[]');
 let arq=JSON.parse(localStorage.getItem('op_arq')||'[]');
-let selId=null,ovAtual=null,tabAtual='diarias',tipoNovoAtual='diarias';
+let selId=null, ovAtual=null;
+let tabAtual='diarias', tipoNovoAtual='diarias';
+
 const save=()=>localStorage.setItem('op_rows',JSON.stringify(rows));
 const saveArq=()=>localStorage.setItem('op_arq',JSON.stringify(arq));
-function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));$('view-'+v).classList.add('active');document.querySelectorAll('.nav-btn').forEach(e=>e.classList.remove('on'));if($('nav-'+v))$('nav-'+v).classList.add('on');if(v==='lista')render();if(v==='novo')resetForm();if(v==='arquivo')renderArq();}
-function mudaTab(t){tabAtual=t;['diarias','salario'].forEach(x=>{$('tab-'+x).classList.toggle('on',x===t);$('tbl-'+x).style.display=x===t?'':'none';});render();}
-function mudaTipoNovo(t){tipoNovoAtual=t;['diarias','salario'].forEach(x=>{$('ntab-'+x).classList.toggle('on',x===t);$('form-'+x).style.display=x===t?'':'none';});}
-function getFilt(tipo){const q=$('search').value.toLowerCase();const fs=$('f-status').value;const fc=$('f-centro').value;return rows.filter(r=>{if(r.tipo_registro!==tipo)return false;if(fs!=='todos'&&r.status!==fs)return false;if(fc!=='todos'&&r.centroCusto!==fc)return false;if(q&&!r.favorecido.toLowerCase().includes(q)&&!r.descricao.toLowerCase().includes(q)&&!r.centroCusto.toLowerCase().includes(q))return false;return true;});}
-function render(){const fD=getFilt('diaria'),fS=getFilt('salario');const tot=rows.reduce((s,r)=>s+r.totalGeral,0);const pago=rows.filter(r=>r.status==='pago').reduce((s,r)=>s+r.totalGeral,0);const apr=rows.filter(r=>r.status==='aprovado').reduce((s,r)=>s+r.totalGeral,0);const pend=rows.filter(r=>r.status==='pendente').reduce((s,r)=>s+r.totalGeral,0);
-$('kpis').innerHTML=[{l:'Total',v:fmt(tot),c:'#1B4F72',i:'💰'},{l:'Pago',v:fmt(pago),c:'#065F46',i:'✅'},{l:'Aprovado',v:fmt(apr),c:'#92400E',i:'👍'},{l:'Pendente',v:fmt(pend),c:'#78350F',i:'⏳'}].map(k=><div class="kpi-card"><div class="kpi-top"><span>${k.i}</span><span class="kpi-label">${k.l}</span></div><div class="kpi-val" style="color:${k.c}">${k.v}</div></div>).join('');
-const pc={};rows.forEach(r=>{pc[r.centroCusto]=(pc[r.centroCusto]||0)+r.totalGeral;});
-$('obra-bar').innerHTML=Object.entries(pc).map(([c,v])=><div class="obra-chip"><span class="obra-name">${c}</span><span class="obra-val">${fmt(v)}</span></div>).join('');
-const centros=[...new Set(rows.map(r=>r.centroCusto))];const selCC=$('f-centro').value;
-$('f-centro').innerHTML='<option value="todos">Todos centros</option>'+centros.map(c=><option${c===selCC?' selected':''}>${c}</option>).join('');
-$('tbody-diarias').innerHTML=fD.length===0?<tr class="empty-r"><td colspan="11">${rows.filter(r=>r.tipo_registro==='diaria').length===0?'Nenhum lançamento. Toque em + Novo.':'Nenhum resultado.'}</td></tr>:fD.map(r=>{const s=ST[r.status];return`<tr class="dr"><td>${fmtD(r.dataSolicitacao)}</td><td><span class="cbadge">${r.centroCusto}</span></td><td style="font-weight:600">${r.favorecido}</td><td><div style="font-size:11px">${r.descricao}</div>${r.tipo?<div class="ttag">${r.tipo}</div>:''}</td><td style="text-align:center">${r.qtdDiarias||'—'}</td><td style="color:#0369A1;white-space:nowrap">${r.vlDiaria?fmt(r.vlDiaria):'—'}</td><td style="text-align:center">${r.qtdHE||'—'}</td><td style="color:#7C3AED;white-space:nowrap">${r.vlHE?fmt(r.vlHE):'—'}</td><td style="font-weight:800;white-space:nowrap">${fmt(r.totalGeral)}</td><td><span class="badge" style="color:${s.color};background:${s.bg}">${s.label}</span></td><td><button class="bl" onclick="openDet(${r.id})">Ver</button></td></tr>`;}).join('');
-$('tot-diarias').textContent=fmt(fD.reduce((s,r)=>s+r.totalGeral,0));
-$('tbody-salario').innerHTML=fS.length===0?<tr class="empty-r"><td colspan="11">${rows.filter(r=>r.tipo_registro==='salario').length===0?'Nenhum salário. Toque em + Novo → Salário.':'Nenhum resultado.'}</td></tr>:fS.map(r=>{const s=ST[r.status];return`<tr class="dr"><td>${fmtD(r.dataSolicitacao)}</td><td><span class="cbadge">${r.centroCusto}</span></td><td style="font-weight:600">${r.favorecido}</td><td style="font-size:11px">${r.descricao}</td><td style="color:#0369A1;font-weight:700">${fmt(r.salBase)}</td><td style="color:#DC2626">${r.desconto>0?fmt(r.desconto
+
+// ── VIEWS ─────────────────────────────────────────────────────────────────
+function showView(v){
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  $('view-'+v).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(e=>e.classList.remove('on'));
+  if($('nav-'+v)) $('nav-'+v).classList.add('on');
+  if(v==='lista') render();
+  if(v==='novo') resetForm();
+  if(v==='arquivo') renderArq();
+}
+
+// ── TABS LISTA ─────────────────────────────────────────────────────────────
+function mudaTab(t){
+  tabAtual=t;
+  ['diarias','salario'].forEach(x=>{
+    $('tab-'+x).classList.toggle('on',x===t);
+    $('tbl-'+x).style.display=x===t?'':'none';
+  });
+  render();
+}
+
+// ── TABS NOVO ─────────────────────────────────────────────────────────────
+function mudaTipoNovo(t){
+  tipoNovoAtual=t;
+  ['diarias','salario'].forEach(x=>{
+    $('ntab-'+x).classList.toggle('on',x===t);
+    $('form-'+x).style.display=x===t?'':'none';
+  });
+}
+
+// ── RENDER ─────────────────────────────────────────────────────────────────
+function getFilt(tipo){
+  const q=$('search').value.toLowerCase();
+  const fs=$('f-status').value;
+  const fc=$('f-centro').value;
+  return rows.filter(r=>{
+    if(r.tipo_registro!==tipo) return false;
+    if(fs!=='todos'&&r.status!==fs) return false;
+    if(fc!=='todos'&&r.centroCusto!==fc) return false;
+    if(q&&!r.favorecido.toLowerCase().includes(q)&&!r.descricao.toLowerCase().includes(q)&&!r.centroCusto.toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function render(){
+  const fD=getFilt('diaria'), fS=getFilt('salario');
+  const allRows=rows;
+
+  // KPIs — soma tudo
+  const tot=allRows.reduce((s,r)=>s+r.totalGeral,0);
+  const pago=allRows.filter(r=>r.status==='pago').reduce((s,r)=>s+r.totalGeral,0);
+  const apr=allRows.filter(r=>r.status==='aprovado').reduce((s,r)=>s+r.totalGeral,0);
+  const pend=allRows.filter(r=>r.status==='pendente').reduce((s,r)=>s+r.totalGeral,0);
+  $('kpis').innerHTML=[
+    {l:'Total',v:fmt(tot),c:'#1B4F72',i:'💰'},
+    {l:'Pago',v:fmt(pago),c:'#065F46',i:'✅'},
+    {l:'Aprovado',v:fmt(apr),c:'#92400E',i:'👍'},
+    {l:'Pendente',v:fmt(pend),c:'#78350F',i:'⏳'},
+  ].map(k=><div class="kpi-card"><div class="kpi-top"><span>${k.i}</span><span class="kpi-label">${k.l}</span></div><div class="kpi-val" style="color:${k.c}">${k.v}</div></div>).join('');
+
+  // Obra bar
+  const pc={};allRows.forEach(r=>{pc[r.centroCusto]=(pc[r.centroCusto]||0)+r.totalGeral;});
+  $('obra-bar').innerHTML=Object.entries(pc).map(([c,v])=><div class="obra-chip"><span class="obra-name">${c}</span><span class="obra-val">${fmt(v)}</span></div>).join('');
+
+  // Filtro centros
+  const centros=[...new Set(rows.map(r=>r.centroCusto))];
+  const selCC=$('f-centro').value;
+  $('f-centro').innerHTML='<option value="todos">Todos centros</option>'+centros.map(c=><option${c===selCC?' selected':''}>${c}</option>).join('');
+
+  // Tabela diárias
+  if(fD.length===0){
+    $('tbody-diarias').innerHTML='<tr class="empty-r"><td colspan="11">'+( rows.filter(r=>r.tipo_registro==='diaria').length===0?'Nenhum lançamento. Toque em "+ Novo".':'Nenhum resultado.')+'</td></tr>';
+  } else {
+    $('tbody-diarias').innerHTML=fD.map(r=>{
+      const s=ST[r.status];
+      return `<tr class="dr">
+        <td>${fmtD(r.dataSolicitacao)}</td>
+        <td><span class="cbadge">${r.centroCusto}</span></td>
+        <td style="font-weight:600">${r.favorecido}</td>
+        <td><div style="font-size:11px">${r.descricao}</div>${r.tipo?<div class="ttag">${r.tipo}</div>:''}</td>
+        <td style="text-align:center">${r.qtdDiarias||'—'}</td>
+        <td style="color:#0369A1;white-space:nowrap">${r.vlDiaria?fmt(r.vlDiaria):'—'}</td>
+        <td style="text-align:center">${r.qtdHE||'—'}</td>
+        <td style="color:#7C3AED;white-space:nowrap">${r.vlHE?fmt(r.vlHE):'—'}</td>
+        <td style="font-weight:800;white-space:nowrap">${fmt(r.totalGeral)}</td>
+        <td><span class="badge" style="color:${s.color};background:${s.bg}">${s.label}</span></td>
+        <td><button class="bl" onclick="openDet(${r.id})">Ver</button></td>
+      </tr>`;
+    }).join('');
+  }
+  $('tot-diarias').textContent=fmt(fD.reduce((s,r)=>s+r.totalGeral,0));
+
+  // Tabela salário
+  if(fS.length===0){
+    $('tbody-salario').innerHTML='<tr class="empty-r"><td colspan="11">'+( rows.filter(r=>r.tipo_registro==='salario').length===0?'Nenhum salário. Toque em "+ Novo" → Salário.':'Nenhum resultado.')+'</td></tr>';
+  } else {
+    $('tbody-salario').innerHTML=fS.map(r=>{
+      const s=ST[r.status];
+      return `<tr class="dr">
+        <td>${fmtD(r.dataSolicitacao)}</td>
+        <td><span class="cbadge">${r.centroCusto}</span></td>
+        <td style="font-weight:600">${r.favorecido}</td>
+        <td style="font-size:11px">${r.descricao}</td>
+        <td style="color:#0369A1;font-weight:700">${fmt(r.salBase)}</td>
+        <td style="color:#DC2626">${r.desconto>0?fmt(r.desconto):'—'}</td>
+        <td style="color:#059669">${r.acrescimo>0?fmt(r.acrescimo):'—'}</td>
+        <td style="font-weight:800;white-space:nowrap">${fmt(r.totalGeral)}</td>
+        <td style="font-size:11px;color:#6B7280">${r.pix||'—'}</td>
+        <td><span class="badge" style="color:${s.color};background:${s.bg}">${s.label}</span></td>
+        <td><button class="bl" onclick="openDet(${r.id})">Ver</button></td>
+      </tr>`;
+    }).join('');
+  }
+  $('tot-salario').textContent=fmt(fS.reduce((s,r)=>s+r.totalGeral,0));
+}
+
+// ── DETALHE ─────────────────────────────────────────────────────────────────
+function openDet(id){
+  selId=id;
+  const r=rows.find(x=>x.id===id); if(!r) return;
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  $('view-detalhe').classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(e=>e.classList.remove('on'));
+  $('nav-lista').classList.add('on');
+
+  $('det-rows').innerHTML=[
+    ['Data',fmtD(r.dataSolicitacao)],['Centro de Custo',r.centroCusto],
+    ['Favorecido',r.favorecido],['Descrição',r.descricao],['PIX',r.pix||'—'],
+  ].map(([k,v])=><div class="drow"><span class="dk">${k}</span><span class="dv">${v}</span></div>).join('');
+
+  if(r.tipo_registro==='diaria'){
+    $('det-calc').innerHTML=[
+      ['Tipo',r.tipo||'—'],
+      ['Valor da Diária',r.vlDiaria?fmt(r.vlDiaria):'—'],
+      ['Qtd. Diárias',r.qtdDiarias||'0'],
+      ['Total Diárias',fmt(r.totalDiarias)],
+      ['Valor Hora Extra',r.vlHE?fmt(r.vlHE):'—'],
+      ['Qtd. HE',r.qtdHE||'0'],
+      ['Total HE',fmt(r.totalHE)],
+    ].map(([k,v])=><div class="drow"><span class="dk">${k}</span><span class="dv">${v}</span></div>).join('')+
+    <div class="drow" style="font-weight:800;font-size:14px"><span>TOTAL GERAL</span><span>${fmt(r.totalGeral)}</span></div>;
+  } else {
+    $('det-calc').innerHTML=[
+      ['Salário Base',fmt(r.salBase)],
+      ['Descontos',r.desconto>0?fmt(r.desconto):'—'],
+      ['Acréscimos',r.acrescimo>0?fmt(r.acrescimo):'—'],
+    ].map(([k,v])=><div class="drow"><span class="dk">${k}</span><span class="dv">${v}</span></div>).join('')+
+    <div class="drow" style="font-weight:800;font-size:14px"><span>TOTAL LÍQUIDO</span><span>${fmt(r.totalGeral)}</span></div>;
+  }
+
+  $('det-val').textContent=fmt(r.totalGeral);
+  const s=ST[r.status];
+  $('det-badge').textContent=s.label;
+  $('det-badge').style.color=s.color;
+  $('det-badge').style.background=s.bg;
+  $('det-status').innerHTML=Object.entries(ST).filter(([k])=>k!==r.status).map(([k,v])=>
+    <button class="bst" style="color:${v.color};border-color:${v.color}" onclick="mudaStatus(${id},'${k}')">Marcar como ${v.label}</button>).join('');
+  $('btn-del').onclick=()=>{if(confirm('Excluir?')){rows=rows.filter(r=>r.id!==id);save();showView('lista');toast('Removido.',true);}};
+}
+
+function mudaStatus(id,st){
+  rows=rows.map(r=>r.id===id?{...r,status:st}:r);
+  save(); toast('Status → '+ST[st].label); openDet(id);
+}
+
+// ── FORM DIÁRIAS ─────────────────────────────────────────────────────────────
+function calc(){
+  const vd=parseFloat($('f-vdia').value)||0;
+  const qd=parseFloat($('f-qdia').value)||0;
+  const qh=parseFloat($('f-qhe').value)||0;
+  const vh=vd>0?vd/8:0;
+  const td=vd*qd, th=vh*qh;
+  $('f-vhe').value=vd>0?fmtN(vh):'';
+  $('f-tdia').value=td>0?fmtN(td):'';
+  $('f-the').value=th>0?fmtN(th):'';
+  $('cb-d').textContent=fmt(td);
+  $('cb-h').textContent=fmt(th);
+  $('cb-t').textContent=fmt(td+th);
+}
+
+function toggleOutro(){$('outro-wrap').style.display=$('f-cc').value==='OUTRO'?'grid':'none';}
+function toggleOutroSal(){$('outro-wrap-sal').style.display=$('s-cc').value==='OUTRO'?'grid':'none';}
+
+function calcSal(){
+  const b=parseFloat($('s-base').value)||0;
+  const d=parseFloat($('s-desc2').value)||0;
+  const a=parseFloat($('s-acres').value)||0;
+  const liq=b-d+a;
+  $('s-liq').value=b>0?fmtN(liq):'';
+  $('sb-base').textContent=fmt(b);
+  $('sb-desc').textContent=fmt(d);
+  $('sb-acres').textContent=fmt(a);
+  $('sb-liq').textContent=fmt(liq);
+}
+
+function resetForm(){
+  // diárias
+  ['f-fav','f-desc','f-pix','f-vdia','f-qdia','f-qhe','f-vhe','f-tdia','f-the'].forEach(id=>{if($(id))$(id).value='';});
+  ['f-cc','f-tipo'].forEach(id=>{if($(id))$(id).value='';});
+  $('f-cc-custom').value=''; $('outro-wrap').style.display='none';
+  $('f-data').value=new Date().toISOString().split('T')[0];
+  $('cb-d').textContent=fmt(0); $('cb-h').textContent=fmt(0); $('cb-t').textContent=fmt(0);
+  // salário
+  ['s-fav','s-desc','s-pix','s-base','s-desc2','s-acres','s-liq'].forEach(id=>{if($(id))$(id).value='';});
+  if($('s-cc'))$('s-cc').value='';
+  $('s-cc-custom').value=''; $('outro-wrap-sal').style.display='none';
+  $('s-data').value=new Date().toISOString().split('T')[0];
+  $('sb-base').textContent=fmt(0); $('sb-desc').textContent=fmt(0); $('sb-acres').textContent=fmt(0); $('sb-liq').textContent=fmt(0);
+  // erros
+  ['cc','fav','tipo','desc','vdia'].forEach(k=>{
+    if($('e-'+k)) $('e-'+k).style.display='none';
+  });
+  ['cc','fav','desc','base'].forEach(k=>{
+    if($('se-'+k)) $('se-'+k).style.display='none';
+  });
+  mudaTipoNovo(tipoNovoAtual);
+}
+
+function cancelForm(){showView('lista');}
+
+function submitDiaria(){
+  let ok=true;
+  const sh=(id,el)=>{if($(id))$(id).style.display='';if(el)el.classList.add('err');ok=false;};
+  const hd=(id,el)=>{if($(id))$(id).style.display='none';if(el)el.classList.remove('err');};
+  const cc=$('f-cc').value, fav=$('f-fav').value.trim();
+  const tip=$('f-tipo').value, dsc=$('f-desc').value.trim();
+  const vd=parseFloat($('f-vdia').value);
+  cc?hd('e-cc',$('f-cc')):sh('e-cc',$('f-cc'));
+  fav?hd('e-fav',$('f-fav')):sh('e-fav',$('f-fav'));
+  tip?hd('e-tipo',$('f-tipo')):sh('e-tipo',$('f-tipo'));
+  dsc?hd('e-desc',$('f-desc')):sh('e-desc',$('f-desc'));
+  vd>0?hd('e-vdia',$('f-vdia')):sh('e-vdia',$('f-vdia'));
+  if(!ok) return;
+  const qd=parseFloat($('f-qdia').value)||0;
+  const qh=parseFloat($('f-qhe').value)||0;
+  const vh=vd/8, td=vd*qd, th=vh*qh;
+  const centro=cc==='OUTRO'?($('f-cc-custom').value||'OUTRO'):cc;
+  rows.unshift({id:Date.now(),tipo_registro:'diaria',dataSolicitacao:$('f-data').value,centroCusto:centro,favorecido:fav.toUpperCase(),descricao:dsc.toUpperCase(),tipo:tip,vlDiaria:vd,qtdDiarias:qd,totalDiarias:td,vlHE:vh,qtdHE:qh,totalHE:th,totalGeral:td+th,pix:$('f-pix').value,status:'pendente'});
+  save(); mudaTab('diarias'); showView('lista'); toast('Diária registrada!');
+}
+
+function submitSalario(){
+  let ok=true;
+  const sh=(id,el)=>{if($(id))$(id).style.display='';if(el)el.classList.add('err');ok=false;};
+  const hd=(id,el)=>{if($(id))$(id).style.display='none';if(el)el.classList.remove('err');};
+  const cc=$('s-cc').value, fav=$('s-fav').value.trim();
+  const dsc=$('s-desc').value.trim(), base=parseFloat($('s-base').value);
+  cc?hd('se-cc',$('s-cc')):sh('se-cc',$('s-cc'));
+  fav?hd('se-fav',$('s-fav')):sh('se-fav',$('s-fav'));
+  dsc?hd('se-desc',$('s-desc')):sh('se-desc',$('s-desc'));
+  base>0?hd('se-base',$('s-base')):sh('se-base',$('s-base'));
+  if(!ok) return;
+  const desc=parseFloat($('s-desc2').value)||0;
+  const acres=parseFloat($('s-acres').value)||0;
+  const liq=base-desc+acres;
+  const centro=cc==='OUTRO'?($('s-cc-custom').value||'OUTRO'):cc;
+  rows.unshift({id:Date.now(),tipo_registro:'salario',dataSolicitacao:$('s-data').value,centroCusto:centro,favorecido:fav.toUpperCase(),descricao:dsc.toUpperCase(),tipo:'SALÁRIO',salBase:base,desconto:desc,acrescimo:acres,totalGeral:liq,pix:$('s-pix').value,status:'pendente'});
+  save(); mudaTab('salario'); showView('lista'); toast('Salário registrado!');
+}
+
+// ── PDF ─────────────────────────────────────────────────────────────────────
+function buildTabelaPDF(rList, tipo){
+  if(tipo==='diaria'){
+    const tbody=rList.map(r=>`<tr>
+      <td>${fmtD(r.dataSolicitacao)}</td><td>${r.centroCusto}</td>
+      <td><b>${r.favorecido}</b></td><td>${r.descricao}</td><td>${r.tipo||'—'}</td>
+      <td>${r.qtdDiarias||'—'}</td><td>${r.vlDiaria?fmt(r.vlDiaria):'—'}</td>
+      <td>${r.qtdHE||'—'}</td><td>${r.vlHE?fmt(r.vlHE):'—'}</td>
+      <td><b>${fmt(r.totalGeral)}</b></td><td>${ST[r.status].label}</td>
+    </tr>`).join('');
+    const tot=rList.reduce((s,r)=>s+r.totalGeral,0);
+    return `<h3 style="font-size:12px;font-weight:700;margin:12px 0 6px;color:#1B4F72">💰 DIÁRIAS / HORA EXTRA</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:9px">
+      <thead><tr style="background:#f3f4f6">
+        <th style="padding:5px 6px;border:1px solid #ccc">Data</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Centro</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Favorecido</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Descrição</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Tipo</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Diárias</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Vl/Dia</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">HE</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Vl/HE</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Total</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Status</th>
+      </tr></thead>
+      <tbody>${tbody}</tbody>
+      <tfoot><tr style="background:#f9fafb">
+        <td colspan="9" style="padding:5px 6px;border:1px solid #ccc;border-top:2px solid #999;text-align:right;font-weight:700">TOTAL</td>
+        <td style="padding:5px 6px;border:1px solid #ccc;border-top:2px solid #999;font-weight:800">${fmt(tot)}</td>
+        <td style="border:1px solid #ccc;border-top:2px solid #999"></td>
+      </tr></tfoot>
+    </table>`;
+  } else {
+    const tbody=rList.map(r=>`<tr>
+      <td>${fmtD(r.dataSolicitacao)}</td><td>${r.centroCusto}</td>
+      <td><b>${r.favorecido}</b></td><td>${r.descricao}</td>
+      <td><b>${fmt(r.salBase)}</b></td>
+      <td style="color:#DC2626">${r.desconto>0?fmt(r.desconto):'—'}</td>
+      <td style="color:#059669">${r.acrescimo>0?fmt(r.acrescimo):'—'}</td>
+      <td><b>${fmt(r.totalGeral)}</b></td>
+      <td>${r.pix||'—'}</td><td>${ST[r.status].label}</td>
+    </tr>`).join('');
+    const tot=rList.reduce((s,r)=>s+r.totalGeral,0);
+    return `<h3 style="font-size:12px;font-weight:700;margin:16px 0 6px;color:#065F46">💼 SALÁRIOS</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:9px">
+      <thead><tr style="background:#f3f4f6">
+        <th style="padding:5px 6px;border:1px solid #ccc">Data</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Centro</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Funcionário</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Referência</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Sal. Base</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Descontos</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Acréscimos</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Líquido</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">PIX</th>
+        <th style="padding:5px 6px;border:1px solid #ccc">Status</th>
+      </tr></thead>
+      <tbody>${tbody}</tbody>
+      <tfoot><tr style="background:#f9fafb">
+        <td colspan="7" style="padding:5px 6px;border:1px solid #ccc;border-top:2px solid #999;text-align:right;font-weight:700">TOTAL LÍQUIDO</td>
+        <td style="padding:5px 6px;border:1px solid #ccc;border-top:2px solid #999;font-weight:800">${fmt(tot)}</td>
+        <td colspan="2" style="border:1px solid #ccc;border-top:2px solid #999"></td>
+      </tr></tfoot>
+    </table>`;
+  }
+}
+
+function buildPDFCompleto(rowsD, rowsS, titulo, data){
+  const totD=rowsD.reduce((s,r)=>s+r.totalGeral,0);
+  const totS=rowsS.reduce((s,r)=>s+r.totalGeral,0);
+  const pc={};[...rowsD,...rowsS].forEach(r=>{pc[r.centroCusto]=(pc[r.centroCusto]||0)+r.totalGeral;});
+  return `
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+      <div>
+        <div style="font-size:15px;font-weight:800;margin-bottom:3px">🏗️ ObraPay — ${titulo}</div>
+        <div style="font-size:11px;color:#6B7280">${data}</div>
+      </div>
+      <div style="text-align:right;font-size:11px;line-height:1.9">
+        <b>Total Geral: ${fmt(totD+totS)}</b><br>
+        Diárias/HE: ${fmt(totD)} · Salários: ${fmt(totS)}
+      </div>
+    </div>
+    ${rowsD.length>0?buildTabelaPDF(rowsD,'diaria'):''}
+    ${rowsS.length>0?buildTabelaPDF(rowsS,'salario'):''}
+    <div style="margin-top:10px;font-size:9px;color:#9ca3af;border-top:1px solid #e5e7eb;padding-top:6px">
+      Por centro: ${Object.entries(pc).map(([c,v])=>c+': '+fmt(v)).join(' · ')}
+    </div>`;
+}
+
+function gerarPDF(){
+  if(rows.length===0){toast('Nenhum lançamento.',true);return;}
+  const fD=getFilt('diaria'), fS=getFilt('salario');
+  $('pdf-conteudo').innerHTML=buildPDFCompleto(fD,fS,'Planilha de Pagamentos','Gerado em '+new Date().toLocaleDateString('pt-BR'));
+  showView('pdf');
+}
+
+function imprimirPDF(){
+  const pa=$('pdf-print-area');
+  pa.innerHTML=$('pdf-conteudo').innerHTML;
+  pa.style.display='block';
+  $('topnav').style.display='none';
+  $('main').style.display='none';
+  window.print();
+  setTimeout(()=>{
+    pa.style.display='none';
+    $('topnav').style.display='';
+    $('main').style.display='';
+  },1500);
+}
+
+// ── ARQUIVO ─────────────────────────────────────────────────────────────────
+function abrirModalZerar(){
+  if(rows.length===0){toast('Nenhum lançamento.',true);return;}
+  $('modal-nome').value=''; $('modal-nome').style.borderColor='#D1D5DB';
+  $('modal-zerar').classList.add('open');
+  setTimeout(()=>$('modal-nome').focus(),120);
+}
+function fecharModal(){$('modal-zerar').classList.remove('open');}
+function confirmarZerar(){
+  const nome=$('modal-nome').value.trim();
+  if(!nome){$('modal-nome').style.borderColor='#DC2626';return;}
+  arq.unshift({id:Date.now(),nome,data:new Date().toLocaleDateString('pt-BR'),total:rows.reduce((s,r)=>s+r.totalGeral,0),qtd:rows.length,rows:JSON.parse(JSON.stringify(rows))});
+  saveArq(); rows=[]; save(); fecharModal(); showView('lista');
+  toast('"'+nome+'" arquivado!');
+}
+
+function renderArq(){
+  if(arq.length===0){$('arq-list').innerHTML='<div class="empty-a">📂 Nenhuma planilha arquivada.</div>';return;}
+  $('arq-list').innerHTML=arq.map(a=>`<div class="arq-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:6px">
+      <div><div class="arq-nome">📄 ${a.nome}</div><div class="arq-meta">Arquivado em ${a.data} · ${a.qtd} lançamento${a.qtd!==1?'s':''}</div></div>
+      <div class="arq-total">${fmt(a.total)}</div>
+    </div>
+    <div class="arq-acts">
+      <button class="bsm" onclick="verArq(${a.id})">👁️ Ver</button>
+      <button class="bsm" onclick="pdfArq(${a.id})">🖨️ PDF</button>
+      <button class="bsm red" onclick="delArq(${a.id})">🗑️ Excluir</button>
+    </div>
+  </div>`).join('');
+}
+
+function verArq(id){
+  const a=arq.find(x=>x.id===id); if(!a) return;
+  ovAtual=id;
+  $('ov-title').textContent='📄 '+a.nome;
+  const rD=a.rows.filter(r=>r.tipo_registro==='diaria');
+  const rS=a.rows.filter(r=>r.tipo_registro==='salario');
+  $('ov-body').innerHTML=buildPDFCompleto(rD,rS,a.nome,'Arquivado em '+a.data);
+  $('ov-ver').classList.add('open');
+}
+function fecharOv(){$('ov-ver').classList.remove('open');ovAtual=null;}
+function imprimirOv(){if(ovAtual)pdfArq(ovAtual);}
+
+function pdfArq(id){
+  const a=arq.find(x=>x.id===id); if(!a) return;
+  const rD=a.rows.filter(r=>r.tipo_registro==='diaria');
+  const rS=a.rows.filter(r=>r.tipo_registro==='salario');
+  $('pdf-conteudo').innerHTML=buildPDFCompleto(rD,rS,a.nome,'Arquivado em '+a.data);
+  $('ov-ver').classList.remove('open');
+  showView('pdf');
+}
+
+function delArq(id){
+  if(!confirm('Excluir esta planilha?')) return;
+  arq=arq.filter(a=>a.id!==id); saveArq(); renderArq(); toast('Excluído.',true);
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+function toast(msg,err){
+  const el=$('toast');
+  el.textContent=msg; el.style.background=err?'#DC2626':'#059669';
+  el.style.display='block'; el.style.opacity='1';
+  setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.style.display='none',300);},2800);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+$('f-data').value=new Date().toISOString().split('T')[0];
+$('s-data').value=new Date().toISOString().split('T')[0];
+$('modal-zerar').addEventListener('click',e=>{if(e.target===$('modal-zerar'))fecharModal();});
+$('ov-ver').addEventListener('click',e=>{if(e.target===$('ov-ver'))fecharOv();});
+render();
+</script>
+</body>
+</html>
