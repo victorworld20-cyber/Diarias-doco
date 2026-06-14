@@ -44,7 +44,75 @@ td{padding:9px 10px;font-size:12px;vertical-align:middle}
 tfoot td{padding:8px 10px;font-size:12px;background:#F8FAFC;border-top:2px solid #E5E7EB}
 .tfl{font-weight:700;color:#374151;text-align:right;font-size:11px}
 .tfv{font-weight:800;color:#111827;font-size:13px}
-.form-card{ba…<body>
+.form-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.sec-title{font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #F1F5F9}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f{display:flex;flex-direction:column;gap:4px}
+.f.full{grid-column:1/-1}
+.lbl{font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.4px}
+.inp{padding:8px 10px;border-radius:8px;border:1.5px solid #D1D5DB;font-size:13px;outline:none;font-family:inherit;color:#111827;background:#fff;width:100%}
+.inp:focus{border-color:#6B7280}
+.inp.err{border-color:#DC2626}
+.inp[readonly]{background:#F9FAFB;color:#0369A1;font-weight:700}
+.em{font-size:10px;color:#DC2626}
+.hint{font-size:10px;color:#9CA3AF;margin-top:1px}
+.calc-box{background:#F0F9FF;border:1.5px solid #BAE6FD;border-radius:10px;padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.ci-label{font-size:9px;color:#0369A1;font-weight:700;text-transform:uppercase}
+.ci-val{font-size:14px;font-weight:800;color:#0C4A6E;margin-top:2px}
+.sal-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:10px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.sal-label{font-size:9px;color:#166534;font-weight:700;text-transform:uppercase}
+.sal-val{font-size:14px;font-weight:800;color:#065F46;margin-top:2px}
+.fa{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+.bp{background:#111827;color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.bg{background:#fff;color:#374151;border:1.5px solid #D1D5DB;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.dl{display:grid;grid-template-columns:1fr;gap:10px}
+.dc{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:8px}
+.dt{font-size:10px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px}
+.drow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:12px}
+.dk{color:#6B7280;font-weight:500}.dv{color:#111827;font-weight:600;text-align:right;max-width:58%}
+.vg{font-size:22px;font-weight:800;color:#111827;margin-top:3px}
+.sa{display:flex;flex-direction:column;gap:6px;margin-top:9px}
+.bst{padding:7px 11px;border-radius:8px;border:1.5px solid;background:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;text-align:left}
+.bdel{width:100%;background:#FEF2F2;color:#DC2626;border:1.5px solid #FECACA;border-radius:9px;padding:10px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+.arq-card{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:8px}
+.arq-nome{font-weight:700;font-size:13px;color:#111827}
+.arq-meta{font-size:11px;color:#6B7280;margin-top:2px}
+.arq-total{font-size:16px;font-weight:800;color:#1B4F72}
+.arq-acts{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.bsm{padding:5px 10px;border-radius:7px;border:1.5px solid #D1D5DB;background:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;color:#374151}
+.bsm.red{border-color:#FECACA;color:#DC2626;background:#FEF2F2}
+.empty-a{text-align:center;padding:32px;color:#9CA3AF;background:#fff;border-radius:10px;font-size:13px;line-height:2}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.mo.open{display:flex}
+.md{background:#fff;border-radius:14px;padding:20px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.md h3{font-size:15px;font-weight:800;margin-bottom:5px}
+.md p{font-size:12px;color:#6B7280;margin-bottom:12px;line-height:1.6}
+.md-inp{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #D1D5DB;font-size:14px;font-family:inherit;outline:none;margin-bottom:12px}
+.md-inp:focus{border-color:#111827}
+.md-acts{display:flex;justify-content:flex-end;gap:8px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;align-items:center;justify-content:center;padding:12px}
+.ov.open{display:flex}
+.ov-box{background:#fff;border-radius:14px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.ov-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #E5E7EB;flex-shrink:0}
+.ov-title{font-size:14px;font-weight:800}
+.ov-acts{display:flex;gap:7px}
+.ov-body{overflow:auto;padding:16px;flex:1}
+.ov-close{background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;line-height:1;padding:2px}
+.pdf-wrap{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.pdf-actions{display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px}
+#toast{position:fixed;bottom:18px;right:16px;color:#fff;padding:10px 16px;border-radius:9px;font-size:12px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.15);z-index:999;display:none;transition:opacity .3s}
+@media print{
+body{background:#fff!important;margin:0;padding:0}
+#topnav,#main{display:none!important}
+#pdf-print-area{display:block!important;position:static;width:100%;padding:10px;font-family:sans-serif}
+#pdf-print-area table{width:100%;border-collapse:collapse}
+#pdf-print-area th{background:#f3f4f6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:5px 6px;border:1px solid #ccc;font-size:9px;font-weight:700;text-align:left}
+#pdf-print-area td{padding:5px 6px;border:1px solid #ddd;font-size:9px}
+#pdf-print-area tfoot td{background:#f9fafb!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-top:2px solid #999;font-weight:700}
+@page{margin:8mm;size:A4 landscape}}
+#pdf-print-area{display:none}
+</style>
+</head><body>
 <div id="pdf-print-area"></div>
 <nav id="topnav">
   <span class="app-logo">🏗️</span>
